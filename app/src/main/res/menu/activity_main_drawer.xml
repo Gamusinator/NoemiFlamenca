@@ -6,21 +6,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_vestidos"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Vestidos" />
+            android:icon="@mipmap/ic_vestido"
+            android:title="@string/menu_1" />
         <item
             android:id="@+id/nav_faldas"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Faldas" />
+            android:icon="@mipmap/ic_falda"
+            android:title="@string/menu_2" />
         <item
             android:id="@+id/nav_accesorios"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Accesorios" />
+            android:icon="@mipmap/ic_abanico"
+            android:title="@string/menu_3" />
         <item
             android:id="@+id/nav_contacto"
             android:layout_width="wrap_content"
-            android:icon="@drawable/ic_menu_share"
-            android:title="Contacto" />
+            android:icon="@mipmap/ic_contacto"
+            android:title="@string/menu_4" />
     </group>
 
 </menu>

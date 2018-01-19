@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">NoemiFlamenca</string>
-
+    <string name="app_name">Noemí Flamenca</string>
+    <string name="menu_1">Vestidos</string>
+    <string name="menu_2">Faldas</string>
+    <string name="menu_3">Accesorios</string>
+    <string name="menu_4">Contacto</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
 </resources>
