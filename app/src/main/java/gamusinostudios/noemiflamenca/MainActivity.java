@@ -17,6 +17,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //eliminar este FragmentManager si no queremos que la aplicación inicie mostrando vestidos
+    private FragmentManager fragmentManager=getSupportFragmentManager();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+
+        //eliminar este fragmentManager si no queremos que la aplicacion inicie mostrando vestidos
+        fragmentManager.beginTransaction().replace(R.id.contenedor, new Fragment01()).commit();
     }
 
     @Override
@@ -82,12 +89,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        FragmentManager fragmentManager=getSupportFragmentManager();
+        //Descomentar este FragmentManager si desactivamos lacarga de vestidos al inicio de la aplicacion.
+        //FragmentManager fragmentManager=getSupportFragmentManager();
 
         if (id == R.id.nav_vestidos) {
-
             fragmentManager.beginTransaction().replace(R.id.contenedor, new Fragment01()).commit();
-
         } else if (id == R.id.nav_faldas) {
             fragmentManager.beginTransaction().replace(R.id.contenedor, new Fragment02()).commit();
         } else if (id == R.id.nav_accesorios) {
