@@ -18,9 +18,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -90,7 +92,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_vestidos) {
             contenedor.removeAllViews();
-            fragmentManager.beginTransaction().replace(R.id.contenedor, new Fragment01()).commit();
+            //Actualmente este fragment no hace nada.
+            //fragmentManager.beginTransaction().replace(R.id.contenedor, new Fragment01()).commit();
             listaVestidos();
         } else if (id == R.id.nav_faldas) {
             contenedor.removeAllViews();
@@ -138,5 +141,18 @@ public class MainActivity extends AppCompatActivity
         //Agrega vistas al contenedor.
         contenedor.addView(miTextView);
     }
+
+    //public void contacto(){
+        //Apartado Contacto
+        //Si se hace clic en Boton Gmail
+     //   ImageButton botonGmail = (ImageButton) findViewById(R.id.imageButton1);
+      //  botonGmail.setOnClickListener(new View.OnClickListener() {
+      //      @Override
+       //     public void onClick(View view) {
+                //Si se hace click en el boton de Gmail...
+        //        Toast.makeText(getApplicationContext(),"Abriendo editor de correo...",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
+    //}
 }
 
