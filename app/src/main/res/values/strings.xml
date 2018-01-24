@@ -6,7 +6,10 @@
     <string name="menu_4">Contacto</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="contacto_desc">Para contactar con nosotros, puedes enviarnos un correo electrónico o enviarnos un mensaje por nuestras redes sociales.</string>
+    <string name="correo">minoemiflamenca@gmail.com</string>
+    <string name="facebook">www.facebook.com/minoemiflamenca</string>
+    <string name="youtube">www.youtube.com/falta definir!!!</string>
     <string name="action_settings">Settings</string>
 
 </resources>
