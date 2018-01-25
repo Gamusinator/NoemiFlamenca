@@ -1,6 +1,7 @@
 package gamusinostudios.noemiflamenca;
 
 import android.app.VoiceInteractor;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -46,8 +47,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 //Modificar este sección para modificar la acción del boton compartir
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                CompartirAPP();
             }
         });
 
@@ -60,6 +60,17 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+    }
+
+    public void CompartirAPP(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "La millor APP del mercat! (Aquí posarem el link de google play");
+        try {
+            startActivity(Intent.createChooser(intent, "Compartir APP"));
+        } catch (android.content.ActivityNotFoundException ex) {
+            //do something else
+        }
     }
 
     @Override

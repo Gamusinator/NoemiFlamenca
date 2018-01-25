@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 
-/**
+/*
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link Fragment04.OnFragmentInteractionListener} interface
@@ -74,10 +74,11 @@ public class Fragment04 extends Fragment implements View.OnClickListener{
     }
 
     public void sendEmail(){
-        Intent emailIntent = new Intent(
+        /*Intent emailIntent = new Intent(
                 android.content.Intent.ACTION_SEND);
         emailIntent.setAction(Intent.ACTION_SEND);
-        emailIntent.setType("message/rfc822");
+        //emailIntent.setType("message/rfc822");
+        emailIntent.setType("text/html");
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
                 new String[] { "minoemiflamenca@gmail.com" });
         emailIntent.setType("text/html");
@@ -85,6 +86,19 @@ public class Fragment04 extends Fragment implements View.OnClickListener{
         //Comprueba si hay alguna aplicación que pueda enviar nuestro Email
         startActivity(Intent.createChooser(emailIntent,
                 "Enviar un Email con: "));
+                */
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"minoemiflamenca@gmail.com"});
+       // intent.putExtra(Intent.EXTRA_CC, new String[] {"andy@whatever.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "");
+        intent.putExtra(Intent.EXTRA_TEXT, "");
+
+        try {
+            startActivity(Intent.createChooser(intent, "How to send mail?"));
+        } catch (android.content.ActivityNotFoundException ex) {
+            //do something else
+        }
     }
 
     public void navegateToUrl(){
