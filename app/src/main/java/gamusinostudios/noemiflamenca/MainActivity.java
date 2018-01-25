@@ -32,7 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,15 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+        FloatingActionButton share;
+        share = (FloatingActionButton) findViewById(R.id.share);
+        share.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        //s'ha d'escriure lo ke fa el boto share
     }
 
     @Override
@@ -130,7 +139,7 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     //Respuesta incorrecta
-                    miTextView.setText("I'm flipping totally");
+                    miTextView.setText("La base de datos tardó mucho en responder...");
                 }
             });
             queue.add(stringRequest);
@@ -141,18 +150,5 @@ public class MainActivity extends AppCompatActivity
         //Agrega vistas al contenedor.
         contenedor.addView(miTextView);
     }
-
-    //public void contacto(){
-        //Apartado Contacto
-        //Si se hace clic en Boton Gmail
-     //   ImageButton botonGmail = (ImageButton) findViewById(R.id.imageButton1);
-      //  botonGmail.setOnClickListener(new View.OnClickListener() {
-      //      @Override
-       //     public void onClick(View view) {
-                //Si se hace click en el boton de Gmail...
-        //        Toast.makeText(getApplicationContext(),"Abriendo editor de correo...",Toast.LENGTH_SHORT).show();
-        //    }
-        //});
-    //}
 }
 
