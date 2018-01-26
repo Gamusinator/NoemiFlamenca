@@ -18,8 +18,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -35,6 +37,9 @@ import com.android.volley.toolbox.Volley;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
+    //Inicializamos fragmentManager aqui para poder cargar el fragment01 al iniciar la aplicacion
+    FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Modificar este sección para modificar la acción del boton compartir
+                //Acción del boton compartir
                 CompartirAPP();
             }
         });
@@ -60,17 +65,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
-    }
 
-    public void CompartirAPP(){
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "La millor APP del mercat! (Aquí posarem el link de google play");
-        try {
-            startActivity(Intent.createChooser(intent, "Compartir APP"));
-        } catch (android.content.ActivityNotFoundException ex) {
-            //do something else
-        }
+        //abrimos la aplicación mostrando el fragment01
+        fragmentManager=getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.contenedor, new Fragment01()).commit();
+
     }
 
     @Override
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         //Crea contenedor
         ConstraintLayout contenedor = (ConstraintLayout) findViewById(R.id.contenedor);
 
-        FragmentManager fragmentManager=getSupportFragmentManager();
+        //FragmentManager fragmentManager=getSupportFragmentManager();
 
         if (id == R.id.nav_vestidos) {
             contenedor.removeAllViews();
@@ -153,5 +152,18 @@ public class MainActivity extends AppCompatActivity
         //Agrega vistas al contenedor.
         contenedor.addView(miTextView);
     }
+
+    public void CompartirAPP(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "La millor APP del mercat! (Aquí posarem el link de google play");
+        try {
+            startActivity(Intent.createChooser(intent, "Compartir APP"));
+        } catch (android.content.ActivityNotFoundException ex) {
+            //do something else
+        }
+    }
+
+
 }
 
