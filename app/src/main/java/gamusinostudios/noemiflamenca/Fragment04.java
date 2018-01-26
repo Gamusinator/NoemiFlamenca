@@ -88,16 +88,13 @@ public class Fragment04 extends Fragment implements View.OnClickListener{
                 "Enviar un Email con: "));
                 */
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
+        intent.setType("message/rfc822");
+        intent.setPackage("com.google.android.gm");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"minoemiflamenca@gmail.com"});
-       // intent.putExtra(Intent.EXTRA_CC, new String[] {"andy@whatever.com"});
-        intent.putExtra(Intent.EXTRA_SUBJECT, "");
-        intent.putExtra(Intent.EXTRA_TEXT, "");
-
         try {
-            startActivity(Intent.createChooser(intent, "How to send mail?"));
+            startActivity(intent);
         } catch (android.content.ActivityNotFoundException ex) {
-            //do something else
+            Toast.makeText(getContext(), "Cáspitas! parece que no tienes correo Gmail!", Toast.LENGTH_SHORT).show();
         }
     }
 
